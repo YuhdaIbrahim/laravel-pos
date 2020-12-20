@@ -24,7 +24,7 @@ class DiscountFactory extends Factory
     public function definition()
     {
         return [
-            'code_discount' => 'Order-'. Str::random(10),
+            'code_discount' => Str::random(5),
             'discount' => rand(1,100),
             'expires' => Carbon::instance($this->faker->dateTimeBetween('-1 months', '+1 months')),
             'active' => rand(0,1),

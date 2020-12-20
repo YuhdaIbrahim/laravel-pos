@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Discount\DiscountDeleteResource;
+use App\Http\Resources\Discount\DiscountIndexResource;
+use App\Http\Resources\Discount\DiscountInsertResource;
+use App\Http\Resources\Discount\DiscountShowResource;
+use App\Models\Discount;
 use Illuminate\Http\Request;
 
 class DiscountController extends Controller
@@ -14,7 +19,7 @@ class DiscountController extends Controller
      */
     public function index()
     {
-        //
+        return DiscountIndexResource::collection(Discount::all());
     }
 
     /**
@@ -35,7 +40,21 @@ class DiscountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+           'code_discount' => 'required|min:5',
+            'discount' => 'required|numeric',
+            'expires' => 'required|date_format:Y-m-d|after_or_equal:now',
+            'active' => 'required|numeric|between:0,1'
+        ]);
+
+        $discount = new Discount([
+           'code_discount' => $request->get('code_discount'),
+           'discount' => $request->get('discount'),
+           'expires' => $request->get('expires'),
+           'active' => $request->get('active'),
+        ]);
+        $discount->save();
+        return new DiscountInsertResource($discount);
     }
 
     /**
@@ -46,7 +65,14 @@ class DiscountController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            return new DiscountShowResource(Discount::findOrFail($id));
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response([
+                'status' => 'ERROR',
+                'error' => '404 not found'
+            ], 404);
+        }
     }
 
     /**
@@ -69,7 +95,20 @@ class DiscountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'code_discount' => 'required|min:5',
+            'discount' => 'required|numeric',
+            'expires' => 'required|date_format:Y-m-d|after_or_equal:now',
+            'active' => 'required|numeric|between:0,1'
+        ]);
+
+        $discount = Discount::findOrFail($id);
+        $discount->code_discount = $request->get('code_discount');
+        $discount->discount = $request->get('discount');
+        $discount->expires = $request->get('expires');
+        $discount->active = $request->get('active');
+        $discount->save();
+        return new DiscountInsertResource($discount);
     }
 
     /**
@@ -80,6 +119,8 @@ class DiscountController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $discount = Discount::findOrFail($id);
+        $discount->delete();
+        return new DiscountDeleteResource($discount);
     }
 }
