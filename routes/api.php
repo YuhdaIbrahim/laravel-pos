@@ -24,3 +24,4 @@ Route::apiResources([
     'discounts' => \App\Http\Controllers\Api\DiscountController::class,
     'orders' => \App\Http\Controllers\Api\OrderController::class,
 ]);
+Route::post('/create-detail', \App\Http\Controllers\Api\CreateOrderDetailController::class)->name('create.detail');

@@ -92,7 +92,7 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::findOrFail($id);
-        $category->name_category = $request->get('name_category');
+        $category->name_category = $request->filled('name_category') ? $request->get('name_category') : $category->name_category;
         $category->save();
         return new CategoryInsertResource($category);
     }
