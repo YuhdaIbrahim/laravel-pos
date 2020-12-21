@@ -28,10 +28,10 @@ class Order extends Model
     }
 
     public function discount(){
-        return $this->belongsTo(Discount::class);
+        return $this->belongsTo(Discount::class, 'id_discount', 'id');
     }
 
     public function order_details(){
-        return $this->hasMany(Order_detail::class);
+        return $this->hasMany(Order_detail::class, 'id_order', 'id');
     }
 }

@@ -22,4 +22,5 @@ Route::apiResources([
     'products' => \App\Http\Controllers\Api\ProductController::class,
     'categories' => \App\Http\Controllers\Api\CategoryController::class,
     'discounts' => \App\Http\Controllers\Api\DiscountController::class,
+    'orders' => \App\Http\Controllers\Api\OrderController::class,
 ]);
