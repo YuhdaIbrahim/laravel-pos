@@ -1,0 +1,307 @@
+.orders-wrapper {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    padding: 39px 54px 38px 52px;
+
+    .sidebar-order {
+        width: 588px;
+        padding-right: 47px;
+
+        h3 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .line {
+            width: 15%;
+            border-top: 4px solid $white-color;
+            border-radius: 15px;
+        }
+
+        .item-order {
+            height: 65%;
+            margin-top: 50px;
+            overflow-y: auto;
+            padding-right: 20px;
+
+            @media only screen and (max-width: $medium) {
+                height: 60%;
+            }
+
+            .item {
+                display: flex;
+                justify-content: space-between;
+                background-color: $secondary-dark-color;
+                align-items: center;
+                border-radius: 30px;
+                padding-top: 16px;
+                padding-left: 36px;
+                padding: 30px 16px 27px 35px;
+                margin-bottom: 21px;
+
+
+                @media only screen and (max-width: $medium) {
+                    padding: 15px 16px 15px 35px;
+                }
+
+                .order {
+
+                    h4 {
+                        margin-bottom: 7px;
+                        font-size: 22px;
+                        color: $gray-color;
+                    }
+
+                    .process {
+                        margin-bottom: 0;
+                        font-size: 14px;
+                        position: relative;
+                        padding-left: 22px;
+                        color: $gray-color;
+                    }
+
+                    .success:before {
+                        content: '';
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        background-color: $green-color;
+                        border-radius: 50%;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    .pending:before {
+                        content: '';
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        background-color: $yellow-color;
+                        border-radius: 50%;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    .cancel:before {
+                        content: '';
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        background-color: $red-color;
+                        border-radius: 50%;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+
+
+
+            }
+
+            .active {
+                background-color: $yellow-color;
+                color: $primary-dark-color;
+
+                .order {
+                    .id-order {
+                        color: $primary-dark-color;
+                    }
+
+                    .process {
+                        color: $primary-dark-color;
+                    }
+                }
+            }
+
+            .item:nth-last-child(1) {
+                margin-bottom: 0;
+            }
+        }
+
+        .nav {
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+            background-color: $secondary-dark-color;
+            border-radius: 15px;
+            padding: 15px 0;
+
+            @media only screen and (max-width: $medium) {
+                margin-top: 30px;
+            }
+
+            .nav-link {
+                color: $gray-color;
+                font-size: 18px;
+            }
+
+            .active {
+                color: $white-color;
+                font-weight: bold;
+            }
+        }
+
+    }
+
+    .details {
+        width: 100%;
+        background-color: $secondary-dark-color;
+        border-radius: 30px;
+        padding-top: 43px;
+        padding-left: 59px;
+        padding-right: 49px;
+        position: relative;
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid $white-color;
+            margin-bottom: 57px;
+            align-items: center;
+            padding-bottom: 33px;
+
+            .process-order {
+
+                .id-order {
+                    font-size: 35px;
+                }
+
+                .process {
+                    padding-left: 32px;
+                    position: relative;
+                    margin-top: 12px;
+                    font-size: 28px;
+                    color: $gray-color;
+                    margin-bottom: 0;
+                }
+
+                .success:before {
+                    content: '';
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    background-color: $green-color;
+                    border-radius: 50%;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .pending:before {
+                    content: '';
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    background-color: $yellow-color;
+                    border-radius: 50%;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .cancel:before {
+                    content: '';
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    background-color: $red-color;
+                    border-radius: 50%;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+
+            .total {
+                h4 {
+                    font-size: 30px;
+                }
+            }
+        }
+
+        .body {
+            height: 70%;
+            overflow-y: auto;
+            padding-right: 20px;
+
+            @media only screen and (max-width: $medium) {
+                height: 40%;
+            }
+
+            h4 {
+                font-size: 30px;
+            }
+
+            .top {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 35px;
+                margin-bottom: 33px;
+                color: $gray-color;
+            }
+
+
+            .item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 37px;
+
+                .order {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 80px;
+                        margin-right: 84px;
+                    }
+
+                    h4 {
+                        font-size: 30px;
+                    }
+                }
+
+                .amount {
+                    margin-right: 5px;
+                }
+
+
+            }
+        }
+
+        .footer {
+            width: 100%;
+            display: flex;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 66px;
+
+            button {
+                width: 100%;
+                border: none;
+                color: $white-color;
+            }
+
+            button:focus {
+                outline: none;
+            }
+
+            .btn-cancel {
+                border-bottom-left-radius: 30px;
+                background-color: $red-color;
+            }
+
+            .btn-finish {
+                border-bottom-right-radius: 30px;
+                background-color: $green-color;
+            }
+
+        }
+    }
+}

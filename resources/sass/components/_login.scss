@@ -1,0 +1,79 @@
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card-login {
+        width: 572px;
+        background-color: $secondary-dark-color;
+        padding: 35px 18px 0 18px;
+        border-radius: 30px;
+        position: relative;
+        height: 547px;
+
+
+        .card-nav {
+            width: 340px;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: $primary-dark-color;
+            display: flex;
+            justify-content: center;
+            padding: 25px 0;
+            border-radius: 15px;
+            margin-bottom: 49px;
+
+            .nav-link {
+                color: $gray-color;
+            }
+
+            .active {
+                font-weight: bold;
+                color: $white-color;
+            }
+        }
+
+        .form-group:nth-last-child(2) {
+            margin-bottom: 75px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 15px;
+            margin-left: 8px;
+            font-size: 24px;
+        }
+
+        input {
+            height: 60px;
+            background-color: $primary-dark-color;
+            border: none;
+            border-radius: 10px;
+            color: $white-color;
+            padding-left: 10px;
+            margin-right: 10px;
+
+            &:focus {
+                outline: none;
+                border: 0.5px solid $red-color;
+            }
+        }
+
+        .btn-login {
+            position: absolute;
+            width: 100%;
+            height: 70px;
+            left: 0;
+            background-color: $red-color;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            color: $white-color;
+            outline: none;
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+
+        }
+    }
+}

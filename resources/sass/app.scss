@@ -1,8 +1,55 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
-@import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import 'variables';
+
+body {
+  background-color: $primary-dark-color;
+  color: $white-color;
+  font-family: 'Poppins', sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+
+  *::-webkit-scrollbar-track {
+    border: none;
+    background-color: $gray-color;
+  }
+
+  *::-webkit-scrollbar {
+    width: 4px;
+    background-color: $primary-dark-color;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear,
+            left bottom,
+            left top,
+            color-stop(0.44, rgb(122, 153, 217)),
+            color-stop(0.72, rgb(73, 125, 189)),
+            color-stop(0.86, $primary-dark-color));
+  }
+}
+
+#app {
+  height: 100%;
+}
+
+.page-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  @import './components/home';
+  @import './components/login';
+  @import './components/orders';
+  @import './components/dashboard';
+
+}
