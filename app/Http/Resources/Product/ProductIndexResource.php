@@ -17,8 +17,9 @@ class ProductIndexResource extends JsonResource
         return [
             'id' => $this->id,
             'name_product' => $this->name_product,
-            'price' => $this->name_product,
-            'id_category' => $this->id_category,
+            'price' => $this->price,
+            'img_path' => $this->img_path,
+            'category' => $this->category->name_category,
         ];
     }
 }

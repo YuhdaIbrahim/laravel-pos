@@ -41,7 +41,7 @@ class DiscountController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           'code_discount' => 'required|min:5',
+            'code_discount' => 'required|min:5|unique:discounts',
             'discount' => 'required|numeric',
             'expires' => 'required|date_format:Y-m-d|after_or_equal:now',
             'active' => 'required|numeric|between:0,1'
@@ -71,6 +71,20 @@ class DiscountController extends Controller
             return response([
                 'status' => 'ERROR',
                 'error' => '404 not found'
+            ], 404);
+        }
+    }
+
+    public function getDiscount($code){
+        $date = today()->format('Y-m-d');
+        $discount = Discount::where('code_discount',$code)->where('active','=',1)->where('expires','>=', $date)
+            ->first();
+        if($discount){
+            return new DiscountShowResource($discount);
+        } else {
+            return response([
+                'status' => 'ERROR',
+                'error' => 'Discount has Expired'
             ], 404);
         }
     }

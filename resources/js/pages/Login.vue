@@ -2,9 +2,9 @@
     <div class="login-wrapper">
         <div class="card-login">
             <div class="card-nav">
-                <router-link class="nav-link" to="/" exact>Home</router-link>
-                <router-link class="nav-link" to="/orders">Orders</router-link>
-                <router-link class="nav-link" to="/login">Login</router-link>
+                <router-link class="nav-link" :to="{name: 'home'}" exact>Home</router-link>
+                <router-link class="nav-link" :to="{name: 'orders'}">Orders</router-link>
+                <router-link class="nav-link" :to="{name: 'login'}">Login</router-link>
             </div>
             <form action="#">
                 <div class="form-group">

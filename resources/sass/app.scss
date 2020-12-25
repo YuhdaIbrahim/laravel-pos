@@ -9,6 +9,17 @@ body {
   background-color: $primary-dark-color;
   color: $white-color;
   font-family: 'Poppins', sans-serif;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+}
+
+p {
+  margin-bottom: 0;
 }
 
 body,
@@ -23,6 +34,7 @@ html {
 
   *::-webkit-scrollbar {
     width: 4px;
+    height: 4px;
     background-color: $primary-dark-color;
   }
 
@@ -52,4 +64,43 @@ html {
   @import './components/orders';
   @import './components/dashboard';
 
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.4s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.list-enter {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0 !important;
+  transform: translateY(30px) !important;
 }

@@ -17,6 +17,7 @@ class CategoryShowResource extends JsonResource
         return [
             'id' => $this->id,
             'name_category' => $this->name_category,
+            'products' => $this->products,
         ];
     }
 }

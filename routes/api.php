@@ -19,9 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResources([
-    'products' => \App\Http\Controllers\Api\ProductController::class,
-    'categories' => \App\Http\Controllers\Api\CategoryController::class,
-    'discounts' => \App\Http\Controllers\Api\DiscountController::class,
-    'orders' => \App\Http\Controllers\Api\OrderController::class,
+    'products' => \Api\ProductController::class,
+    'categories' => \Api\CategoryController::class,
+    'discounts' => \Api\DiscountController::class,
+    'orders' => \Api\OrderController::class,
 ]);
-Route::post('/create-detail', \App\Http\Controllers\Api\CreateOrderDetailController::class)->name('create.detail');
+Route::post('/create-detail', 'Api\CreateOrderDetailController')->name('create.detail');
+Route::get('/get-discount/{code}', 'Api\DiscountController@getDiscount')->name('get.discount');

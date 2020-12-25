@@ -25,4 +25,8 @@ class Product extends Model
     public function order_details(){
         return $this->hasMany(Order_detail::class,'id_product','id');
     }
+
+    public function getImgPath($value){
+        return asset($value);
+    }
 }

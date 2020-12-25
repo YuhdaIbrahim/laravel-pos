@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return ProductIndexResource::collection(Product::all());
+        return ProductIndexResource::collection(Product::with('category')->get());
     }
 
     /**

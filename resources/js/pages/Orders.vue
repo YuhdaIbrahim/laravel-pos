@@ -55,9 +55,9 @@
                 </div>
             </div>
             <div class="nav">
-                <router-link to="/" class="nav-link" exact>Home</router-link>
-                <router-link class="nav-link" to="/orders">Orders</router-link>
-                <router-link class="nav-link" to="/login">Login</router-link>
+                <router-link class="nav-link" :to="{name: 'home'}" exact>Home</router-link>
+                <router-link class="nav-link" :to="{name: 'orders'}">Orders</router-link>
+                <router-link class="nav-link" :to="{name: 'login'}">Login</router-link>
             </div>
         </div>
         <div class="details">

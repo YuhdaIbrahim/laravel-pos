@@ -57,9 +57,11 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        try {
-            return new CategoryShowResource(Category::findOrFail($id));
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+        $category = Category::find($id);
+        $category->products()->get();
+        if($category){
+            return new CategoryShowResource($category);
+        } else {
             return response([
                 'status' => 'ERROR',
                 'error' => '404 not found'
