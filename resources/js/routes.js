@@ -2,6 +2,7 @@ import VueRouter from "vue-router";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Orders from "./pages/Orders";
+import Dashboard from "./pages/Dashboard";
 const routes = [
     {
         path: '/',
@@ -17,6 +18,11 @@ const routes = [
         path: '/orders',
         component: Orders,
         name: "orders",
+    },
+    {
+        path: '/dashboard',
+        component: Dashboard,
+        name: "dashboard",
     },
 ]
 

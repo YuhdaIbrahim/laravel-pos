@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Order\OrderDetailResource;
 use App\Http\Resources\Order\OrderIndexResource;
 use App\Models\Order;
+use App\Models\Order_detail;
 use Illuminate\Http\Request;
 
 class GetDetailOrderController extends Controller
@@ -20,7 +21,7 @@ class GetDetailOrderController extends Controller
     {
         $order = Order::find($id);
         if($order){
-            $order->order_details()->get();
+            $order->with(['order_details','product_details'])->get();
             return new OrderDetailResource($order);
         } else {
             return response([

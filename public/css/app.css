@@ -11493,11 +11493,17 @@ html *::-webkit-scrollbar-thumb {
   color: #fff;
   padding-left: 10px;
   margin-right: 10px;
+  transition: all 0.5s;
 }
 
 .page-wrapper .login-wrapper .card-login input:focus {
   outline: none;
   border: 0.5px solid #EB5757;
+  box-shadow: none;
+}
+
+.page-wrapper .login-wrapper .card-login input:active {
+  outline: none;
 }
 
 .page-wrapper .login-wrapper .card-login .btn-login {
@@ -11562,6 +11568,18 @@ html *::-webkit-scrollbar-thumb {
   padding-left: 36px;
   padding: 30px 16px 27px 35px;
   margin-bottom: 21px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.page-wrapper .orders-wrapper .sidebar-order .item-order .item:hover {
+  transform: translateY(-10px);
+  background-color: #FFE250;
+  color: #121421 !important;
+}
+
+.page-wrapper .orders-wrapper .sidebar-order .item-order .item:active {
+  transform: translateY(10px);
 }
 
 @media only screen and (max-width: 1366px) {
@@ -11601,7 +11619,19 @@ html *::-webkit-scrollbar-thumb {
   width: 12px;
   height: 12px;
   position: absolute;
-  background-color: #FFE250;
+  background-color: #121421;
+  border-radius: 50%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.page-wrapper .orders-wrapper .sidebar-order .item-order .item .order .active.pending:before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  background-color: #fff;
   border-radius: 50%;
   left: 0;
   top: 50%;
@@ -11672,6 +11702,17 @@ html *::-webkit-scrollbar-thumb {
   position: relative;
 }
 
+.page-wrapper .orders-wrapper .details .loading {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+}
+
+.page-wrapper .orders-wrapper .details .details-content {
+  height: 100%;
+}
+
 .page-wrapper .orders-wrapper .details .header {
   display: flex;
   justify-content: space-between;
@@ -11711,7 +11752,7 @@ html *::-webkit-scrollbar-thumb {
   width: 24px;
   height: 24px;
   position: absolute;
-  background-color: #FFE250;
+  background-color: #121421;
   border-radius: 50%;
   left: 0;
   top: 50%;
@@ -11805,11 +11846,23 @@ html *::-webkit-scrollbar-thumb {
 .page-wrapper .orders-wrapper .details .footer .btn-cancel {
   border-bottom-left-radius: 30px;
   background-color: #EB5757;
+  transition: all 0.5s;
+}
+
+.page-wrapper .orders-wrapper .details .footer .btn-cancel:hover {
+  color: #121421;
+  background-color: #FFE250;
 }
 
 .page-wrapper .orders-wrapper .details .footer .btn-finish {
   border-bottom-right-radius: 30px;
   background-color: #50FF8A;
+  transition: all 0.5s;
+}
+
+.page-wrapper .orders-wrapper .details .footer .btn-finish:hover {
+  color: #121421;
+  background-color: #FFE250;
 }
 
 .page-wrapper .dashboard {

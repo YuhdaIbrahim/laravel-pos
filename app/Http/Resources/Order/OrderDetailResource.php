@@ -19,6 +19,7 @@ class OrderDetailResource extends JsonResource
           'total' => $this->total,
           'status' => $this->status,
           'order_details' => $this->order_details,
+          'product_details' => $this->product_details,
         ];
     }
 }

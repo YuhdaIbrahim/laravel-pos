@@ -32,7 +32,11 @@ class Order extends Model
         return $this->belongsTo(Discount::class, 'id_discount', 'id');
     }
 
+    public function product_details(){
+        return $this->hasManyThrough(Product::class,Order_detail::class , 'id_order', 'id');
+    }
+
     public function order_details(){
-        return $this->hasMany(Order_detail::class, 'id_order', 'id');
+        return $this->hasMany(Order_detail::class , 'id_order', 'id');
     }
 }

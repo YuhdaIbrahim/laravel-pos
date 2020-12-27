@@ -40,6 +40,18 @@
                 padding-left: 36px;
                 padding: 30px 16px 27px 35px;
                 margin-bottom: 21px;
+                cursor: pointer;
+                transition: all 0.5s;
+
+                &:hover{
+                  transform: translateY(-10px);
+                  background-color: $yellow-color;
+                  color: $primary-dark-color !important;
+                }
+
+                &:active {
+                  transform: translateY(10px);
+                }
 
 
                 @media only screen and (max-width: $medium) {
@@ -79,11 +91,23 @@
                         width: 12px;
                         height: 12px;
                         position: absolute;
-                        background-color: $yellow-color;
+                        background-color: $primary-dark-color;
                         border-radius: 50%;
                         left: 0;
                         top: 50%;
                         transform: translateY(-50%);
+                    }
+
+                    .active.pending:before{
+                      content: '';
+                      width: 12px;
+                      height: 12px;
+                      position: absolute;
+                      background-color: $white-color;
+                      border-radius: 50%;
+                      left: 0;
+                      top: 50%;
+                      transform: translateY(-50%);
                     }
 
                     .cancel:before {
@@ -157,6 +181,17 @@
         padding-right: 49px;
         position: relative;
 
+        .loading {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          top: 50%;
+        }
+
+        .details-content {
+          height: 100%;
+        }
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -197,7 +232,7 @@
                     width: 24px;
                     height: 24px;
                     position: absolute;
-                    background-color: $yellow-color;
+                    background-color: $primary-dark-color;
                     border-radius: 50%;
                     left: 0;
                     top: 50%;
@@ -295,11 +330,24 @@
             .btn-cancel {
                 border-bottom-left-radius: 30px;
                 background-color: $red-color;
+                transition: all 0.5s;
+
+                &:hover {
+                  color: $primary-dark-color;
+                  background-color: $yellow-color;
+                }
             }
 
             .btn-finish {
                 border-bottom-right-radius: 30px;
                 background-color: $green-color;
+
+                transition: all 0.5s;
+
+                &:hover {
+                  color: $primary-dark-color;
+                  background-color: $yellow-color;
+                }
             }
 
         }

@@ -53,10 +53,15 @@
             color: $white-color;
             padding-left: 10px;
             margin-right: 10px;
+            transition: all 0.5s;
 
             &:focus {
                 outline: none;
                 border: 0.5px solid $red-color;
+                box-shadow: none;
+            }
+            &:active {
+              outline: none;
             }
         }
 
