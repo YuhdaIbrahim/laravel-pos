@@ -18,6 +18,7 @@ class OrderShowResource extends JsonResource
             'id' => $this->id,
             'total' => $this->total,
             'id_discount' => $this->id_discount,
+            'status' => $this->status,
         ];
     }
 }

@@ -26,3 +26,6 @@ Route::apiResources([
 ]);
 Route::post('/create-detail', 'Api\CreateOrderDetailController')->name('create.detail');
 Route::get('/get-discount/{code}', 'Api\DiscountController@getDiscount')->name('get.discount');
+Route::get('/get-orders-today', 'Api\GetOrderTodayController')->name('order.today');
+Route::put('/set-order-status', 'Api\SetStatusOrderController')->name('order.setStatus');
+Route::get('/get-detail-order/{id}', 'Api\GetDetailOrderController')->name('order.detail');

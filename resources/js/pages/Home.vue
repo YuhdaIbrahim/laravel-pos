@@ -179,9 +179,16 @@
               } else {
                   axios.get(`/api/categories/${id}`)
                       .then(res  => {
+                          this.dataProduct = [];
                           this.dataProduct = res.data.data.products;
+                          // this.dataProduct = this.dataProduct.filter((elem) => {
+                          //     return item.find(({ id }) => elem.id === id)
+                          // });
+                          // if(this.dataProduct.length < 1){
+                          //     item.forEach(new_prod => this.dataProduct.splice(this.dataProduct.length, 0 , new_prod));
+                          // }
                       })
-                      .catch(e => console.log(e.data.errors))
+                      .catch(e => console.log(e))
                       .finally(() => this.loading = false);
               }
           },

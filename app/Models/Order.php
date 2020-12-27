@@ -14,7 +14,8 @@ class Order extends Model
     protected $fillable = [
         'id',
         'total',
-        'id_discount'
+        'id_discount',
+        'status'
     ];
 
     public function getIncrementing()

@@ -11009,6 +11009,7 @@ html *::-webkit-scrollbar-thumb {
   height: 627px;
   overflow-y: auto;
   padding-top: 20px;
+  position: relative;
 }
 
 @media only screen and (max-width: 1366px) {
@@ -11030,6 +11031,7 @@ html *::-webkit-scrollbar-thumb {
   margin-right: 20px;
   transition: all 0.3s;
   cursor: pointer;
+  display: inline-block;
 }
 
 .page-wrapper .main-wrapper .main-content .upper-section .product-tab .item-product .type {
@@ -11976,5 +11978,28 @@ html *::-webkit-scrollbar-thumb {
 .list-leave-to {
   opacity: 0 !important;
   transform: translateY(30px) !important;
+}
+
+.list-leave-active {
+  position: absolute;
+}
+
+.product-enter {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.product-enter-active {
+  transition: all 1s ease;
+}
+
+.product-leave-to {
+  opacity: 0 !important;
+  transform: translateY(30px);
+}
+
+.product-leave-active {
+  opacity: 0 !important;
+  position: absolute;
 }
 

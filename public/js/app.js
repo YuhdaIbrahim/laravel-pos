@@ -2066,7 +2066,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProductTab",
-  props: ['dataProduct', 'addOrder']
+  props: ['dataProduct', 'addOrder'],
+  methods: {
+    slicingName: function slicingName(name) {
+      var strLength = name.length;
+
+      if (strLength >= 10) {
+        return name.slice(0, 10) + '...';
+      }
+
+      return name;
+    }
+  }
 });
 
 /***/ }),
@@ -2296,9 +2307,15 @@ __webpack_require__.r(__webpack_exports__);
         this.getAllProduct();
       } else {
         axios.get("/api/categories/".concat(id)).then(function (res) {
-          _this2.dataProduct = res.data.data.products;
+          _this2.dataProduct = [];
+          _this2.dataProduct = res.data.data.products; // this.dataProduct = this.dataProduct.filter((elem) => {
+          //     return item.find(({ id }) => elem.id === id)
+          // });
+          // if(this.dataProduct.length < 1){
+          //     item.forEach(new_prod => this.dataProduct.splice(this.dataProduct.length, 0 , new_prod));
+          // }
         })["catch"](function (e) {
-          return console.log(e.data.errors);
+          return console.log(e);
         })["finally"](function () {
           return _this2.loading = false;
         });
@@ -39070,9 +39087,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    { staticClass: "product-tab" },
-    _vm._l(_vm.dataProduct, function(product) {
+    "TransitionGroup",
+    { staticClass: "product-tab", attrs: { name: "product", tag: "div" } },
+    _vm._l(_vm.dataProduct, function(product, index) {
       return _c(
         "div",
         {
@@ -39097,9 +39114,7 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("div", { staticClass: "product" }, [
-            _c("p", [
-              _vm._v(_vm._s(product.name_product.slice(0, 10) + "..."))
-            ]),
+            _c("p", [_vm._v(_vm._s(_vm.slicingName(product.name_product)))]),
             _vm._v(" "),
             _c("span", [_vm._v("$" + _vm._s(product.price))])
           ])
