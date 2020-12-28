@@ -13,6 +13,9 @@ const routes = [
         path: '/login',
         component: Login,
         name: "login",
+        meta: {
+            requiresVisitor: true,
+        }
     },
     {
         path: '/orders',
@@ -23,6 +26,9 @@ const routes = [
         path: '/dashboard',
         component: Dashboard,
         name: "dashboard",
+        meta: {
+            requiresAuth: true,
+        }
     },
 ]
 

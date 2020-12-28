@@ -1,5 +1,8 @@
 <template>
     <div class="item-order">
+        <transition name="fade">
+            <h5 v-if="items.length < 1">No Order Today</h5>
+        </transition>
         <div @click="selectOrder(item.id)" v-for="(item, index) in items" :class="[{ active: index === 0  }]" class="item">
             <div class="order">
                 <h4 class="id-order">#{{ item.id }}</h4>

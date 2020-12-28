@@ -6,7 +6,12 @@
             </div>
         </transition>
         <transition name="fade">
-            <div v-if="!loading" class="details-content">
+            <div v-if="!loading && !detailOrder.order_details" class="loading">
+                No Order Selected
+            </div>
+        </transition>
+        <transition name="fade">
+            <div v-if="!loading && detailOrder.order_details" class="details-content">
                 <div class="header">
                     <div class="process-order">
                         <h4 class="id-order">#{{ detailOrder.id }}</h4>
