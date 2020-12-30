@@ -4,7 +4,7 @@
             <div class="card-nav">
                 <router-link class="nav-link" :to="{name: 'home'}" exact>Home</router-link>
                 <router-link class="nav-link" :to="{name: 'orders'}">Orders</router-link>
-                <router-link v-if="isLogin" class="nav-link" :to="{name: 'login'}">Login</router-link>
+                <router-link v-if="!isLogin" class="nav-link" :to="{name: 'login'}">Login</router-link>
                 <a v-else class="nav-link" @click="logOut" >Logout</a>
             </div>
             <form action="#" @submit.prevent="login">
