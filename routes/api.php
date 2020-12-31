@@ -25,9 +25,15 @@ Route::apiResources([
     'categories' => \Api\CategoryController::class,
     'discounts' => \Api\DiscountController::class,
     'orders' => \Api\OrderController::class,
+    'employees' => \Api\Dashboard\EmployeeController::class,
 ]);
 Route::post('/create-detail', 'Api\CreateOrderDetailController')->name('create.detail');
 Route::get('/get-discount/{code}', 'Api\DiscountController@getDiscount')->name('get.discount');
 Route::get('/get-orders-today', 'Api\GetOrderTodayController')->name('order.today');
 Route::put('/set-order-status', 'Api\SetStatusOrderController')->name('order.setStatus');
 Route::get('/get-detail-order/{id}', 'Api\GetDetailOrderController')->name('order.detail');
+Route::get('/get-chart', 'Api\Dashboard\HomeController@getChart')->name('get.chart');
+Route::get('/get-top-product', 'Api\Dashboard\HomeController@getTopProduct')->name('get.topProduct');
+Route::get('/get-top-categories', 'Api\Dashboard\HomeController@getTopCategories')->name('get.topCategories');
+Route::get('/get-orders', 'Api\Dashboard\OrdersController@getOrders')->name('get.orders');
+Route::get('/detail-order/{id}', 'Api\Dashboard\OrdersController@getDetailOrder')->name('get.detail-orders');

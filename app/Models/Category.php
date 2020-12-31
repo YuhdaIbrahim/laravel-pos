@@ -18,4 +18,8 @@ class Category extends Model
     public function products(){
         return $this->hasMany(Product::class,'id_category','id');
     }
+
+    public function detail_orders(){
+        return $this->hasManyThrough(Order_detail::class,Product::class , 'id', 'id_product');
+    }
 }

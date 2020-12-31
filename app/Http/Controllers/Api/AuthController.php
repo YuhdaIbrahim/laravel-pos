@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-require '../vendor/autoload.php';
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Http\Request;

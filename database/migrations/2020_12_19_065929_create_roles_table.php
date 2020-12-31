@@ -18,11 +18,11 @@ class CreateRolesTable extends Migration
             $table->timestamps();
 
             $table->string('name_role');
-            $table->integer('all');
-            $table->integer('home');
-            $table->integer('products');
-            $table->integer('orders');
-            $table->integer('employees');
+            $table->integer('all')->default(0)->nullable();
+            $table->integer('home')->default(0)->nullable();
+            $table->integer('products')->default(0)->nullable();
+            $table->integer('orders')->default(0)->nullable();
+            $table->integer('employees')->default(0)->nullable();
         });
     }
 
