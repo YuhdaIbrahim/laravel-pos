@@ -110,14 +110,15 @@ class ProductController extends Controller
         ]);
 
         $product = Product::findOrFail($id);
-        $product->name_product =  $request->get('name_product');
-        $product->price = $request->get('price');
+        $product->name_product = $request->filled('name_product') ? $request->get('name_product') :
+            $product->name_product;
+        $product->price = $request->filled('price') ? $request->get('price') : $product->price;
         if ($files = $request->file('image')) {
             $destinationPath = 'public/image/'; // upload path
             $product->img_path = date('YmdHis') . "." . $files->getClientOriginalExtension();
             $files->move($destinationPath, $product->img_path);
         }
-        $product->id_category = $request->get('id_category');
+        $product->id_category = $request->filled('id_category') ? $request->get('id_category') : $product->id_category;
         $product->save();
         return new ProductInsertResource($product);
     }

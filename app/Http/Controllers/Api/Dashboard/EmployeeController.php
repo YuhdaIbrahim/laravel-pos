@@ -106,13 +106,24 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'name' => 'required|max:50',
+            'email' => 'required|unique:users',
+            'password' => 'required|min:6',
+            'id_role' => 'required',
             'jabatan' => 'required|string',
             'gaji' => 'required|numeric',
         ]);
 
+        $user = User::findOrfail($id);
+        $user->name = $request->filled('name') ? $request->get('name') : $user->name;
+        $user->email = $request->filled('email') ? $request->get('email') : $user->email;
+        $user->password = $request->filled('password') ? $request->get('password') : $user->password;
+        $user->id_role = $request->filled('id_role') ? $request->get('id_role') : $user->id_role;
+        $user->save();
+
         $employee = Employee::findOrFail($id);
-        $employee->jabatan = $request->get('jabatan');
-        $employee->gaji = $request->get('gaji');
+        $employee->jabatan = $request->filled('jabatan') ? $request->get('jabatan') : $employee->jabatan;
+        $employee->gaji = $request->filled('gaji') ? $request->get('gaji') : $employee->gaji;
         $employee->save();
         return new EmployeeShowResource($employee);
     }

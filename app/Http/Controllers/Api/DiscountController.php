@@ -117,10 +117,14 @@ class DiscountController extends Controller
         ]);
 
         $discount = Discount::findOrFail($id);
-        $discount->code_discount = $request->get('code_discount');
-        $discount->discount = $request->get('discount');
-        $discount->expires = $request->get('expires');
-        $discount->active = $request->get('active');
+        $discount->code_discount = $request->filled('code_discount') ?  $request->get('code_discount') :
+            $discount->code_discount;
+        $discount->discount = $request->filled('discount') ?  $request->get('discount') :
+            $discount->discount;
+        $discount->expires = $request->filled('expires') ?  $request->get('expires') :
+            $discount->expires;
+        $discount->active = $request->filled('active') ?  $request->get('active') :
+            $discount->active;
         $discount->save();
         return new DiscountInsertResource($discount);
     }
